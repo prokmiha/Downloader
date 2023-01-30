@@ -17,7 +17,7 @@ Label(root, text="Paste Your Link Here", font="arial 15").place(x=225, y=200)
 Entry(root, width=95, textvariable=link).place(x=35, y=230)
 
 
-def Downloader():
+def downloader():
     correct_itag = 0
     path = "E:\\yt_tests\\"
     yt = YouTube(str(link.get()))
@@ -56,10 +56,10 @@ def Downloader():
         elif not os.path.isfile(f'E:\\yt_tests\\final_{i}.mp4'):
             os.rename('E:\\yt_tests\\final_0.mp4', f'E:\\yt_tests\\final_{i}.mp4')
             break
-    Ready_Window()
+    ready_window()
 
 
-def Ready_Window():
+def ready_window():
     ready = Tk()
     ready_w, ready_h = 300, 150
     ready_x, ready_y = (root_ws / 2) - (ready_w / 2), (root_hs / 2) - (ready_h / 2)
@@ -72,14 +72,14 @@ def Ready_Window():
     root.attributes('-topmost', True)
 
 
-def Exit():
+def exit():
     os.system('explorer.exe E:\\yt_tests')
     root.destroy()
 
 
 Button(root, text="EXIT", font="arial 15 bold", bg="grey", fg='white', padx=2,
-       command=Exit).place(x=285, y=310)
+       command=exit).place(x=285, y=310)
 Button(root, text="DOWNLOAD", font="arial 15", bg="violet", padx=2,
-       command=Downloader).place(x=250, y=260)
+       command=downloader).place(x=250, y=260)
 
 root.mainloop()
